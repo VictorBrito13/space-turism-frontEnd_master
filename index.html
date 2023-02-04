@@ -4,18 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Space tourism</title>
-    <link rel="shortcut icon" href="./public/assets/favicon-32x32.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./assets/favicon-32x32.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="./src/style.css">
   </head>
   <body>
-    <main>
-      <nav>
-        <ul>
-          <li>00 Home</li>
-          <li>01 Destination</li>
-          <li>02 Crew</li>
-          <li>03 Technology</li>
+    <main class="main">
+      <!--* Menu -->
+      <nav class="menu-container">
+        <img src="./assets/shared/logo.svg" class="logo">
+        <ul class="menu">
+          <li><a href="#home" class="menu-item">00 Home</a></li>
+          <li><a href="#destination" class="menu-item">01 Destination</a></li>
+          <li><a href="#crew" class="menu-item">02 Crew</a></li>
+          <li><a href="#tech" class="menu-item">03 Technology</a></li>
         </ul>
       </nav>
+
+      <!--* Introduction -->
+      <article class="container" id="home">
+        <div class="intro-container">
+          <p>So, you want to travel to</p>
+          <h1>Space</h1>
+          <p>
+            Let´s face it; if your want to go to space, you might as well genuinely go to outer space and not hover kind of on the edge of it. Well sit back, and relax because we´ll give you a truly out of this world experience!
+          </p>
+        </div>
+        <div class="explore-container">
+          <h2>Explore</h2>
+        </div>
+      </article>
+
+      <!--* Destination -->
+      <article class="container" id="destination">
+        <h2 class="sub-menu">Destination</h2>
+      </article>
+
+      <!--* Crew -->
+      <article></article>
     </main>
     <script type="module" src="/src/main.ts"></script>
   </body>
