@@ -43,6 +43,7 @@ body{
 .menu-container{
 	width: 100%;
 	position: fixed;
+	z-index: 100;
 	top: 0%;
 	display: grid;
 	grid-template-columns: 40% 60%;
@@ -124,10 +125,109 @@ body{
 }
 
 /** Destination */
+/*? Destination menu */
 #destination{
 	position: absolute;
 	right: -500%;
 }
+.sub-menu-container{
+	display: flex;
+	align-items: center;
+	height: 100%;
+}
 .sub-menu{
 	cursor: pointer;
+	position: relative;
+	z-index: 10;
+}
+.sub-item{
+	position: absolute;
+	margin: 0px;
+	background-color: #04043e;
+	width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    font-size: 1.8rem;
+    left: calc(50% - 50px);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform .2s linear,
+    			left .2s linear,
+    			opacity .2s linear,
+    			visibility .2s linear;
+}
+.sub-menu:hover .sub-item{
+	transition: transform .2s linear,
+				left .2s linear,
+				opacity .2s linear,
+				visibility .2s linear;
+	opacity: 1;
+    visibility: visible;
+	transform-origin: 200%;
+	left: -50%;
+	transform: rotate(calc(360deg / 4 * var(--i)));
+}
+.sub-item-text{
+    color: #fff;
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(calc(360deg / -4 * var(--i)));
+	transition: color .2s linear, background-color .2s linear;
+}
+.sub-item-text:hover{
+	color: #04043e;
+	background-color: #fff;
+	transition: color .2s linear, background-color .2s linear;
+}
+
+/*? Destination container */
+#destination{
+	grid-template-columns: 40% 60%;
+}
+.destinations-container{
+	width: 100%;
+	height: 100%;
+}
+.destination-container{
+	opacity: 0;
+	visibility: hidden;
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.destination-container-active{
+	opacity: 1;
+	visibility: visible;
+}
+.destination-name{
+	font-size: 1.5rem;
+	margin: 0px;
+	text-align: center;
+}
+.destination-image-container{
+	width: 80%;
+	margin: auto;
+	display: grid;
+	grid-template-columns: 60% 40%;
+	justify-content: center;
+	align-items: center;
+	column-gap: 25px;
+	line-height: 30px;
+}
+.destination-image{
+	width: 100%;
+	height: 100%;
+}
+.destination-info{
+	margin-top: 25px;
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
 }

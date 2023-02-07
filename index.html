@@ -36,7 +36,27 @@
 
       <!--* Destination -->
       <article class="container" id="destination">
-        <h2 class="sub-menu">Destination</h2>
+        <!--* Destination menu -->
+        <div class="sub-menu-container">
+          <h2 class="sub-menu">Destination</h2>
+        </div>
+
+        <!--* Destinations -->
+        <div class="destinations-container">
+          <template id="destination-template">
+            <div class="destination-container">
+              <h3 class="destination-name"></h3>
+              <figure class="destination-image-container">
+                <img src="" class="destination-image">
+                <figcaption class="destination-description"></figcaption>
+              </figure>
+              <div class="destination-info">
+                <span class="destination-distance">Distance: </span>
+                <span class="destination-travel">Travel: </span>
+              </div>
+            </div>
+          </template>
+        </div>
       </article>
 
       <!--* Crew -->
