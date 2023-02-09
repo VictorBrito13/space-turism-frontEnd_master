@@ -5,7 +5,7 @@ function changeMenuItem(targetClass: string, itemsClass: string, cssClass: strin
     elements.forEach(element => {
         element.addEventListener('click', () => {
             items.forEach(item => {
-                if(item.querySelector('h3')?.textContent === element.textContent){
+                if(item.querySelector('h3')?.textContent?.match(element.textContent)){
                     item.classList.add(cssClass)
                 }else{
                     item.classList.remove(cssClass)
