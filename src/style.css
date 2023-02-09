@@ -188,11 +188,11 @@ body{
 }
 
 /*? Destination container */
-.destinations-container, .crews-container{
+.destinations-container, .crews-container, .techs-container{
 	width: 100%;
 	height: 100%;
 }
-.destination-container, .crew-container{
+.destination-container, .crew-container, .tech-container{
 	opacity: 0;
 	visibility: hidden;
 	position: absolute;
@@ -201,7 +201,7 @@ body{
 	justify-content: center;
 	align-items: center;
 }
-.destination-container-active, .crew-container-active{
+.destination-container-active, .crew-container-active, .tech-container-active{
 	opacity: 1;
 	visibility: visible;
 }
@@ -241,3 +241,12 @@ body{
 	width: 50%;
 }
 
+/** Techs */
+#tech{
+	position: absolute;
+	left: 800%;
+	top: 100px;
+}
+.tech-image{
+	width: 70%;
+}

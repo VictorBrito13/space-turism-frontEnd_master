@@ -13,6 +13,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 		elementRender: document.querySelector('#crew .sub-menu')
 	})
 
+	generateItems({
+		items: [ "Launch vehicle", "Spaceport", "Space capsule" ],
+		elementRender: document.querySelector('#tech .sub-menu')
+	})
+
 	const data = await getData();
 	const destinations = data.destinations;
 
@@ -54,5 +59,24 @@ document.addEventListener('DOMContentLoaded', async () => {
 	crewContainer?.querySelector('.crew-container')?.classList.add('crew-container-active');
 
 	changeMenuItem('#crew .sub-item', '.crew-container', 'crew-container-active');
+
+	//* Techs
+	const techs = data.technology;
+	const techsContainer = document.querySelector('.techs-container');
+	const techTemplate = document.getElementById('tech-template')?.content;
+	const techFragment = document.createDocumentFragment();
+
+	techs.forEach(tech => {
+		techTemplate.querySelector('.tech-container .tech-name').textContent = tech.name;
+		techTemplate.querySelector('.tech-container .tech-image').src = tech.images.portrait;
+		techTemplate.querySelector('.tech-container .tech-description').textContent = tech.description;
+		const templateClone = document.importNode(techTemplate, true);
+		techFragment.appendChild(templateClone);
+	});
+
+	techsContainer?.appendChild(techFragment);
+	techsContainer?.querySelector('.tech-container')?.classList.add('tech-container-active');
+
+	changeMenuItem('#tech .sub-item', '.tech-container', 'tech-container-active');
 
 });
