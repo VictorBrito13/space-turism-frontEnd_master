@@ -30,8 +30,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 		destinationTemplate.querySelector('.destination-container .destination-name').textContent = destination.name;
 		destinationTemplate.querySelector('.destination-container .destination-image').src = destination.images.webp;
 		destinationTemplate.querySelector('.destination-container .destination-description').textContent = destination.description;
-		destinationTemplate.querySelector('.destination-container .destination-info .destination-distance').textContent += destination.distance;
-		destinationTemplate.querySelector('.destination-container .destination-info .destination-travel').textContent += destination.travel;
+		destinationTemplate.querySelector('.destination-container .destination-info .destination-distance').textContent = `Distance: ${destination.distance}`;
+		destinationTemplate.querySelector('.destination-container .destination-info .destination-travel').textContent = `Travel time: ${destination.travel}`;
 		const templateClone = document.importNode(destinationTemplate, true);
 		destinationFragment.appendChild(templateClone);
 	});
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 		crewTemplate.querySelector('.crew-container .crew-name').textContent = member.name;
 		crewTemplate.querySelector('.crew-container .crew-image').src = member.images.webp;
 		crewTemplate.querySelector('.crew-container .crew-bio').textContent = member.bio;
-		crewTemplate.querySelector('.crew-container .crew-role').textContent += member.role
+		crewTemplate.querySelector('.crew-container .crew-role').textContent = `Role: ${member.role}`;
 		const templateClone = document.importNode(crewTemplate, true);
 		crewFragment.appendChild(templateClone);
 	});
@@ -78,5 +78,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 	techsContainer?.querySelector('.tech-container')?.classList.add('tech-container-active');
 
 	changeMenuItem('#tech .sub-item', '.tech-container', 'tech-container-active');
+
+	document.querySelector('.logo')?.addEventListener('click', () => {
+		document.querySelector('.menu')?.classList.toggle('active');
+	});
 
 });

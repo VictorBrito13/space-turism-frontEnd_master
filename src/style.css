@@ -1,5 +1,6 @@
 :root{
 	--transitions: color .1s linear, left .1s linear;
+	--opacity-transitions: opacity .1s linear, visibility .1s linear;
 }
 @font-face{
 	font-family: 'playfair-display';
@@ -41,7 +42,7 @@ body{
 
 /** Menu */
 .menu-container{
-	width: 100%;
+	width: 100vw;
 	position: fixed;
 	z-index: 100;
 	top: 0%;
@@ -87,7 +88,7 @@ body{
 	transition: var(--transitions);
 	color: #ffadad;
 }
-.menu-item:hover.menu-item:before{
+.menu-item:hover .menu-item:before{
 	transition: var(--transitions);
 	left: 0%;
 }
@@ -99,12 +100,12 @@ body{
 	grid-template-columns: 50% 50%;
 	justify-content: center;
 	align-items: center;
-	height: 80vh;
+	min-height: 100vh;
 }
 .intro-container{
 	font-size: 1.1rem;
 	text-align: center;
-	width: 60%;
+	width: 100%;
 	margin: auto;
 }
 .intro-container h1{
@@ -125,7 +126,6 @@ body{
 }
 
 /** Destination */
-/*? Destination menu */
 #destination{
 	position: absolute;
 	right: -500%;
@@ -139,7 +139,7 @@ body{
 .sub-menu{
 	cursor: pointer;
 	position: relative;
-	z-index: 10;
+	z-index: 200;
 }
 .sub-item{
 	position: absolute;
@@ -187,10 +187,11 @@ body{
 	transition: color .2s linear, background-color .2s linear;
 }
 
-/*? Destination container */
 .destinations-container, .crews-container, .techs-container{
-	width: 100%;
-	height: 100%;
+	min-height: 100vh;
+	display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .destination-container, .crew-container, .tech-container{
 	opacity: 0;
@@ -210,7 +211,7 @@ body{
 	margin: 0px;
 	text-align: center;
 }
-.destination-image-container{
+.destination-image-container, .crew-image-container, .tech-image-container{
 	width: 80%;
 	margin: auto;
 	display: grid;
@@ -249,4 +250,52 @@ body{
 }
 .tech-image{
 	width: 70%;
+}
+
+@media (max-width: 1000px){
+	#home, #destination, #crew, #tech{
+		grid-template-columns: 100%;
+	}
+	.menu{
+		opacity: 0;
+		visibility: hidden;
+		transition: var(--opacity-transitions);
+	}
+	.active{
+		opacity: 1;
+		visibility: visible;
+		transition: var(--opacity-transitions);
+	}
+	.menu{
+		flex-direction: column;
+	}
+	.explore-container, h2{
+		height: 170px;
+		width: 170px;
+	}
+	.sub-item{
+		height: 85px;
+		width: 85px;
+	}
+	#destination, #crew, #tech{
+		min-height: 100vh;
+		position: static;
+		display: block;
+	}
+	.destination-image-container, .crew-image-container, .tech-image-container{
+		max-width: 400px;
+    	margin: 0px auto;
+		display: block;
+	}
+	.destination-image, .crew-image, .tech-image{
+		width: 50%;
+		height: 50%;
+	}
+	.destinations-container, .crews-container, .techs-container{
+		display: flex;
+		justify-content: center;
+	}
+	.destination-info{
+		flex-direction: column;
+	}
 }
