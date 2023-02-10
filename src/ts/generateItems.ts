@@ -11,7 +11,7 @@ function generateItems(opts:IOpts): void {
 		span.classList.add('sub-item-text')
 		span.innerText = item;
 		h3.classList.add('sub-item');
-		h3.style = `--i:${i}`
+		h3.setAttribute('style', `--i:${i}`)
 		h3.appendChild(span)
 		opts.elementRender?.appendChild(h3);
 		i++;
